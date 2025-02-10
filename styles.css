@@ -302,3 +302,29 @@ body {
 .terms-label {
     color: var(--text-color);
 }
+
+/* Estilos para la barra de desplazamiento en navegadores WebKit (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 8px; /* Ancho de la barra de desplazamiento */
+    height: 8px; /* Altura de la barra de desplazamiento horizontal */
+}
+
+::-webkit-scrollbar-track {
+    background: #2d2d2d; /* Color del fondo de la barra de desplazamiento */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #555; /* Color del "pulgar" de la barra de desplazamiento */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #777; /* Color del "pulgar" al pasar el mouse */
+}
+
+/* Estilos para Firefox */
+* {
+    scrollbar-width: thin; /* Hacer la barra de desplazamiento más delgada */
+    scrollbar-color: #555 #2d2d2d; /* Color del "pulgar" y del fondo */
+}
