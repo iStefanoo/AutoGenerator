@@ -3,50 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GeneratorTools - Generador de Códigos QR y más</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="./assets/favicon/safari-pinned-tab.svg" color="#4A90E2">
+    <meta name="msapplication-TileColor" content="#4A90E2">
+    <meta name="theme-color" content="#4A90E2">
+
+    <!-- SEO Meta Tags -->
+    <title>GeneratorTools | Generador QR, Contraseñas y Herramientas Online Gratis</title>
+    <meta name="description" content="Crea códigos QR, contraseñas seguras y nombres únicos con nuestras herramientas online gratis. ¡Optimiza tu presencia digital hoy mismo!">
+    <meta name="keywords" content="generador online, herramientas gratuitas, generador qr, generador contraseñas, generador hashtags, generador nombres, tools online, herramientas digitales, generadores gratis, utilidades web, herramientas marketing, generador códigos, herramientas redes sociales">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tudominio.com/">
+    <meta property="og:title" content="Suite de Herramientas Digitales Gratuitas">
+    <meta property="og:description" content="Generadores de nombres, contraseñas, hashtags y QR. Todo lo que necesitas para tu presencia digital en un solo lugar.">
+    <meta property="og:image" content="https://tudominio.com/assets/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://tudominio.com/">
+    <meta property="twitter:title" content="Suite de Herramientas Digitales Gratuitas">
+    <meta property="twitter:description" content="Generadores de nombres, contraseñas, hashtags y QR. Todo lo que necesitas para tu presencia digital en un solo lugar.">
+    <meta property="twitter:image" content="https://tudominio.com/assets/twitter-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://tudominio.com/">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Generadores Online",
+        "description": "Suite completa de herramientas gratuitas para marketing digital y redes sociales",
+        "url": "https://tudominio.com",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://tudominio.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-tools"></i> GeneratorTools
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="qrcode.html">Generador QR</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="password.html">Generador Contraseñas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="hashtags.html">Generador Hashtags</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="names.html">Generador Nombres</a>
-                    </li>
-                </ul>
-                <button class="btn btn-outline-light" id="themeToggle">
-                    <i class="fas fa-sun"></i> Modo Claro
-                </button>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-overlay">
+        <div class="loading-content">
+            <div class="qr-loader">
+                <svg viewBox="0 0 250 250" width="200" height="200">
+                    <!-- Esquinas posicionadoras del QR -->
+                    <g class="qr-positioning-block top-left">
+                        <rect x="20" y="20" width="60" height="60" />
+                        <rect x="30" y="30" width="40" height="40" fill="var(--bg-color)" />
+                        <rect x="40" y="40" width="20" height="20" />
+                    </g>
+                    <g class="qr-positioning-block top-right">
+                        <rect x="170" y="20" width="60" height="60" />
+                        <rect x="180" y="30" width="40" height="40" fill="var(--bg-color)" />
+                        <rect x="190" y="40" width="20" height="20" />
+                    </g>
+                    <g class="qr-positioning-block bottom-left">
+                        <rect x="20" y="170" width="60" height="60" />
+                        <rect x="30" y="180" width="40" height="40" fill="var(--bg-color)" />
+                        <rect x="40" y="190" width="20" height="20" />
+                    </g>
+                    
+                    <!-- Módulos del QR -->
+                    <g class="qr-modules">
+                        <rect x="100" y="20" width="15" height="15" class="qr-module" />
+                        <rect x="120" y="20" width="15" height="15" class="qr-module" />
+                        <rect x="140" y="20" width="15" height="15" class="qr-module" />
+                        <!-- Más módulos en diferentes posiciones -->
+                        <rect x="100" y="40" width="15" height="15" class="qr-module" />
+                        <rect x="120" y="40" width="15" height="15" class="qr-module" />
+                        <rect x="140" y="40" width="15" height="15" class="qr-module" />
+                        <!-- Módulos centrales -->
+                        <rect x="60" y="100" width="15" height="15" class="qr-module" />
+                        <rect x="80" y="100" width="15" height="15" class="qr-module" />
+                        <rect x="100" y="100" width="15" height="15" class="qr-module" />
+                        <rect x="120" y="100" width="15" height="15" class="qr-module" />
+                        <!-- Más módulos -->
+                        <rect x="140" y="140" width="15" height="15" class="qr-module" />
+                        <rect x="160" y="140" width="15" height="15" class="qr-module" />
+                        <rect x="180" y="140" width="15" height="15" class="qr-module" />
+                    </g>
+                </svg>
+            </div>
+            <p class="loading-text form-text">Cargando recursos...</p>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
             </div>
         </div>
-    </nav>
+    </div>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+            <div class="container">
+                <a class="navbar-brand">
+                    <i class="fas fa-tools"></i> GeneratorTools
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="qrcode.html">Generador QR</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="password.html">Generador Contraseñas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="hashtags.html">Generador Hashtags</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="names.html">Generador Nombres</a>
+                        </li>
+                    </ul>
+                    <button class="btn btn-outline-light" id="themeToggle">
+                        <i class="fas fa-sun"></i> Modo Claro
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+    </header>
 
     <main>
         <!-- Hero Section -->
         <section class="hero-section py-5 text-center">
             <div class="container">
-                <h1 class="display-4 mb-4">Generador de Códigos QR Profesional</h1>
-                <p class="lead mb-4">Crea códigos QR personalizados para tu negocio, redes sociales o uso personal de forma rápida y sencilla.</p>
+                <h1 class="display-4 mb-4">Generador QR, Contraseñas y Nombres  Herramientas Online Gratis</h1>
+                <p class="lead mb-4 ">Crea códigos QR, contraseñas seguras, hashtags y nombres con facilidad.</p>
                 <div class="badge bg-primary p-2 mb-4">
-                    <i class="fas fa-gift"></i> ¡TOTALMENTE GRATIS!
+                    <i class="fas fa-gift"></i> ¡TODAS LAS HERRAMIENTAS SON GRATUITAS!
                 </div>
             </div>
         </section>
@@ -54,7 +156,7 @@
         <!-- Features Section -->
         <section class="features-section py-5">
             <div class="container">
-                <h2 class="text-center mb-5 form-text">¿Por qué usar nuestro Generador QR?</h2>
+                <h2 class="text-center mb-5">¿Por qué usar nuestro Generador QR?</h2>
                 <div class="row g-4">
                     <div class="col-md-4">
                         <div class="feature-card card h-100">
@@ -88,49 +190,7 @@
         </section>
 
         <!-- How It Works Section -->
-        <section class="how-it-works py-5 bg-light">
-            <div class="container">
-                <h2 class="text-center mb-5 form-text">¿Cómo Funciona?</h2>
-                <div class="row g-4">
-                    <div class="col-md-3">
-                        <div class="feature-card card h-100">
-                            <div class="card-body text-center">
-                                <div class="step-number mb-3">1</div>
-                                <h3 class="card-title h5 form-text">Elige el Tipo</h3>
-                                <p class="card-text form-text">Selecciona el tipo de código QR que necesitas</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="feature-card card h-100">
-                            <div class="card-body text-center">
-                                <div class="step-number mb-3">2</div>
-                                <h3 class="card-title h5 form-text">Ingresa los Datos</h3>
-                                <p class="card-text form-text">Completa la información necesaria</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="feature-card card h-100">
-                            <div class="card-body text-center">
-                                <div class="step-number mb-3">3</div>
-                                <h3 class="card-title h5 form-text">Genera el QR</h3>
-                                <p class="card-text form-text">Haz clic en generar y visualiza tu código</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="feature-card card h-100">
-                            <div class="card-body text-center">
-                                <div class="step-number mb-3">4</div>
-                                <h3 class="card-title h5 form-text">Descarga</h3>
-                                <p class="card-text form-text">Descarga tu código QR y ¡listo!</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
 
         <!-- Services Section -->
         <section class="services-section py-5">
@@ -138,7 +198,7 @@
                 <h2 class="text-center mb-5">Nuestros Servicios</h2>
                 <div class="row g-4">
                     <div class="col-md-6 col-lg-3">
-                        <a href="#qr" class="text-decoration-none">
+                        <a href="qrcode.html" class="text-decoration-none">
                             <div class="service-card card h-100">
                                 <div class="card-body text-center">
                                     <i class="fas fa-qrcode service-icon mb-3"></i>
@@ -148,7 +208,7 @@
                         </a>
                     </div>
                     <div class="col-md-6 col-lg-3">
-                        <a href="#passwords" class="text-decoration-none">
+                        <a href="password.html" class="text-decoration-none">
                             <div class="service-card card h-100">
                                 <div class="card-body text-center">
                                     <i class="fas fa-key service-icon mb-3"></i>
@@ -158,7 +218,7 @@
                         </a>
                     </div>
                     <div class="col-md-6 col-lg-3">
-                        <a href="#hashtags" class="text-decoration-none">
+                        <a href="hashtags.html" class="text-decoration-none">
                             <div class="service-card card h-100">
                                 <div class="card-body text-center">
                                     <i class="fas fa-hashtag service-icon mb-3"></i>
@@ -168,7 +228,7 @@
                         </a>
                     </div>
                     <div class="col-md-6 col-lg-3">
-                        <a href="#names" class="text-decoration-none">
+                        <a href="names.html" class="text-decoration-none">
                             <div class="service-card card h-100">
                                 <div class="card-body text-center">
                                     <i class="fas fa-font service-icon mb-3"></i>
@@ -190,7 +250,57 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('themeToggle');
+            
+            function setTheme(isDark) {
+                if (isDark) {
+                    document.documentElement.removeAttribute('data-theme');
+                    themeToggle.innerHTML = '<i class="fas fa-sun"></i> Modo Claro';
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    themeToggle.innerHTML = '<i class="fas fa-moon"></i> Modo Oscuro';
+                    localStorage.setItem('theme', 'light');
+                }
+            }
+
+            // Inicializar tema
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            setTheme(savedTheme === 'dark');
+
+            themeToggle.addEventListener('click', function() {
+                const isDark = !document.documentElement.hasAttribute('data-theme');
+                setTheme(!isDark);
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+    const loadingScreen = document.getElementById('loading-screen');
+    const ANIMATION_DURATION = 2000; // 3 segundos para la animación completa
+    
+    // Verificar si es la primera visita en esta sesión
+    if (!sessionStorage.getItem('firstLoadDone')) {
+        loadingScreen.style.display = 'flex';
+        
+        window.addEventListener('load', function() {
+            // Asegurarnos de que la animación se complete
+            setTimeout(function() {
+                loadingScreen.classList.add('hidden');
+                
+                setTimeout(function() {
+                    loadingScreen.style.display = 'none';
+                }, 500);
+                
+                sessionStorage.setItem('firstLoadDone', 'true');
+            }, ANIMATION_DURATION); // Usar el tiempo definido
+        });
+    } else {
+        loadingScreen.style.display = 'none';
+    }
+});
+
+    </script>
 </body>
 </html> 

@@ -3,9 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generador de Códigos QR - GeneratorTools</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- SEO Meta Tags -->
+    <title>Generador de Códigos QR Gratis | Crear QR con Logo | QR para Negocios</title>
+    <meta name="description" content="Generador de códigos QR gratis con logo personalizado. Crea QR para redes sociales, WiFi, URLs y más. Ideal para negocios, marketing y uso personal. ¡Genera tu QR ahora!">
+    <meta name="keywords" content="generador qr gratis, crear código qr, qr con logo, qr para negocios, qr para wifi, qr para redes sociales, qr personalizado, qr instagram, qr facebook, qr whatsapp, qr para menú, qr para marketing, qr profesional, crear qr online">
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="./assets/favicon/safari-pinned-tab.svg" color="#4A90E2">
+    <meta name="msapplication-TileColor" content="#4A90E2">
+    <meta name="theme-color" content="#4A90E2">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tudominio.com/qr-generator">
+    <meta property="og:title" content="Generador de Códigos QR Gratis con Logo | Herramienta Profesional">
+    <meta property="og:description" content="Crea códigos QR personalizados con tu logo para redes sociales, WiFi, URLs y más. Generador gratuito y profesional para tu negocio.">
+    <meta property="og:image" content="https://tudominio.com/assets/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://tudominio.com/qr-generator">
+    <meta property="twitter:title" content="Generador QR Gratis con Logo | Profesional">
+    <meta property="twitter:description" content="Crea QR personalizados con logo para redes sociales, WiFi, URLs y más. ¡Gratis y profesional!">
+    <meta property="twitter:image" content="https://tudominio.com/assets/twitter-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://tudominio.com/qr-generator">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Generador de Códigos QR Gratis",
+        "description": "Herramienta gratuita para crear códigos QR personalizados con logo para negocios, redes sociales, WiFi y más.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+        },
+        "featureList": [
+            "Generación de QR con logo personalizado",
+            "QR para redes sociales",
+            "QR para WiFi",
+            "QR para URLs",
+            "QR para texto"
+        ]
+    }
+    </script>
+
+    <!-- Estilos -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -70,6 +126,19 @@
                                 <div id="qrInputs">
                                     <!-- Los campos se generarán dinámicamente -->
                                 </div>
+                                <!-- Casilla de verificación para Términos y Condiciones -->
+                                <div class="mb-3">
+                                    <input type="checkbox" id="acceptTerms" required>
+                                    <label for="acceptTerms" class="terms-label">
+                                        He leído y acepto los <a href="legal.html" target="_blank">Términos y Condiciones</a>
+                                    </label>
+                                </div>
+
+                                <!-- Alerta para términos y condiciones -->
+                                <div class="alert alert-danger mt-2" id="termsAlert" style="display: none;">
+                                    <i class="fas fa-exclamation-circle"></i> ¡Debes aceptar los Términos y Condiciones para poder generar el Código QR!
+                                </div>
+
                                 <button class="btn btn-primary w-100" id="generateQR">Generar QR</button>
                             </div>
                         </div>
@@ -88,37 +157,44 @@
             </div>
         </section>
 
-        <!-- Sección de Instrucciones -->
-        <section class="instructions py-5 bg-light">
+        <section class="how-it-works py-5 bg-light">
             <div class="container">
-                <h2 class="text-center mb-5">Cómo Usar el Generador QR</h2>
+                <h2 class="text-center mb-5">¿Cómo Funciona?</h2>
                 <div class="row g-4">
                     <div class="col-md-3">
-                        <div class="step-card text-center p-3">
-                            <div class="step-number">1</div>
-                            <h3 class="h5">Selecciona el Tipo</h3>
-                            <p>Elige entre URL, WiFi, redes sociales o texto</p>
+                        <div class="feature-card card h-100">
+                            <div class="card-body text-center">
+                                <div class="step-number mb-3">1</div>
+                                <h3 class="card-title h5 form-text">Elige el Tipo</h3>
+                                <p class="card-text form-text">Selecciona el tipo de código QR que necesitas</p>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="step-card text-center p-3">
-                            <div class="step-number">2</div>
-                            <h3 class="h5">Ingresa la Información</h3>
-                            <p>Completa los campos requeridos</p>
+                        <div class="feature-card card h-100">
+                            <div class="card-body text-center">
+                                <div class="step-number mb-3">2</div>
+                                <h3 class="card-title h5 form-text">Ingresa los Datos</h3>
+                                <p class="card-text form-text">Completa la información necesaria</p>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="step-card text-center p-3">
-                            <div class="step-number">3</div>
-                            <h3 class="h5">Genera el Código</h3>
-                            <p>Haz clic en "Generar QR"</p>
+                        <div class="feature-card card h-100">
+                            <div class="card-body text-center">
+                                <div class="step-number mb-3">3</div>
+                                <h3 class="card-title h5 form-text">Genera el QR</h3>
+                                <p class="card-text form-text">Haz clic en generar y visualiza tu código</p>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="step-card text-center p-3">
-                            <div class="step-number">4</div>
-                            <h3 class="h5">Descarga</h3>
-                            <p>Descarga tu código QR generado</p>
+                        <div class="feature-card card h-100">
+                            <div class="card-body text-center">
+                                <div class="step-number mb-3">4</div>
+                                <h3 class="card-title h5 form-text">Descarga</h3>
+                                <p class="card-text form-text">Descarga tu código QR y ¡listo!</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -168,8 +244,11 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
     <script src="script.js"></script>
+
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
 </body>
 </html> 

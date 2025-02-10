@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         url: `
             <div class="mb-3">
                 <label class="form-label">URL</label>
-                <input type="url" class="form-control" id="urlInput" placeholder="https://youtube.com">
+                <input type="url" class="form-control" id="urlInput" placeholder="https://youtube.com" >
             </div>
         `,
         wifi: `
@@ -135,6 +135,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Nueva implementación de la generación del QR
     generateQRBtn.addEventListener('click', function() {
+        const acceptTerms = document.getElementById('acceptTerms');
+        const termsAlert = document.getElementById('termsAlert');
+
+        // Verificar si la casilla de términos está marcada
+        if (!acceptTerms.checked) {
+            // Mostrar alerta en rojo
+            termsAlert.style.display = 'block'; // Mostrar la alerta
+            return; // Detener la ejecución si no se acepta
+        } else {
+            termsAlert.style.display = 'none'; // Ocultar la alerta si se acepta
+        }
+
         let qrData = '';
         const type = qrType.value;
 
@@ -178,8 +190,14 @@ document.addEventListener('DOMContentLoaded', function() {
             // Limpiamos el contenedor
             qrResult.innerHTML = '';
             
+            // Crear el contenedor para el QR y el logo
+            const qrContainer = document.createElement('div');
+            qrContainer.style.position = 'relative';
+            qrContainer.style.display = 'inline-block';
+            qrResult.appendChild(qrContainer);
+
             // Creamos nuevo QR
-            new QRCode(qrResult, {
+            new QRCode(qrContainer, {
                 text: qrData,
                 width: 256,
                 height: 256,
@@ -187,6 +205,57 @@ document.addEventListener('DOMContentLoaded', function() {
                 colorLight: "#ffffff",
                 correctLevel: QRCode.CorrectLevel.H
             });
+
+            // Agregar el logo después de que el QR se haya generado
+            setTimeout(() => {
+                const logoUrl = getLogoForType(type, document.getElementById('socialNetwork')?.value);
+                console.log('URL del logo:', logoUrl); // Verificar la URL del logo
+
+                // Cargar el SVG como texto
+                fetch(logoUrl)
+                    .then(response => response.text())
+                    .then(svgText => {
+                        // Crear un objeto de imagen
+                        const img = new Image();
+                        const svgBlob = new Blob([svgText], { type: 'image/svg+xml;charset=utf-8' });
+                        const url = URL.createObjectURL(svgBlob);
+                        img.src = url;
+                        img.crossOrigin = "anonymous"; // Asegúrate de que esto esté presente
+                        
+                        img.onload = function() {
+                            // Crear una imagen combinada para la descarga
+                            const canvas = document.createElement('canvas');
+                            canvas.width = 256;
+                            canvas.height = 256;
+                            const ctx = canvas.getContext('2d');
+
+                            // Dibujar el QR en el canvas
+                            ctx.drawImage(qrContainer.querySelector('canvas'), 0, 0);
+                            // Dibujar el logo en el canvas
+                            ctx.drawImage(img, (canvas.width - img.width) / 2, (canvas.height - img.height) / 2);
+
+                            // Mostrar el logo en el contenedor
+                            qrContainer.appendChild(img);
+
+                            // Actualizar el evento de descarga
+                            downloadQRBtn.addEventListener('click', function() {
+                                const link = document.createElement('a');
+                                link.download = 'qr-code.png';
+                                link.href = canvas.toDataURL('image/png');
+                                document.body.appendChild(link);
+                                link.click();
+                                document.body.removeChild(link);
+                            });
+                        };
+
+                        img.onerror = function() {
+                            console.error('Error al cargar la imagen del logo.');
+                        };
+                    })
+                    .catch(error => {
+                        console.error('Error al obtener el SVG:', error);
+                    });
+            }, 100);
 
             // Mostramos el botón de descarga
             downloadQRBtn.style.display = 'inline-block';
@@ -263,4 +332,42 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.navbar-brand').addEventListener('click', function(e) {
         clearQRAndInputs();
     });
+
+    // Agregar esta nueva función para obtener los logos
+    function getLogoForType(type, socialNetwork) {
+        const logos = {
+            url: {
+                youtube: 'https://api.iconify.design/mdi:youtube.svg',
+                github: 'https://api.iconify.design/mdi:github.svg',
+                linkedin: 'https://api.iconify.design/mdi:linkedin.svg',
+                default: 'https://api.iconify.design/mdi:web.svg'
+            },
+            wifi: 'https://api.iconify.design/mdi:wifi.svg',
+            text: 'https://api.iconify.design/mdi:text-box-outline.svg',
+            social: {
+                instagram: 'https://api.iconify.design/mdi:instagram.svg',
+                x: 'https://api.iconify.design/simple-icons:x.svg',
+                facebook: 'https://api.iconify.design/mdi:facebook.svg'
+            }
+        };
+    
+        if (type === 'url') {
+            // Detectar el tipo de URL
+            const urlInput = document.getElementById('urlInput')?.value.toLowerCase() || '';
+            if (urlInput.includes('youtube.com') || urlInput.includes('youtu.be')) {
+                return logos.url.youtube;
+            } else if (urlInput.includes('github.com')) {
+                return logos.url.github;
+            } else if (urlInput.includes('linkedin.com')) {
+                return logos.url.linkedin;
+            }
+            return logos.url.default;
+        }
+    
+        if (type === 'social' && socialNetwork) {
+            return logos.social[socialNetwork];
+        }
+    
+        return logos[type] || 'https://api.iconify.design/mdi:qrcode.svg';
+    }
 }); 
