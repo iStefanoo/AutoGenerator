@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="name-item p-3 mb-2 bg-light rounded">
                 <div class="d-flex justify-content-between align-items-center">
                     <span>${name}</span>
-                    <button class="btn btn-sm btn-outline-primary copy-name" data-name="${name}">
+                    <button class="btn btn-sm btn-outline-primary copy-name" data-name="${name}" style="box-shadow: 0 0 20px rgba(0, 81, 255, 0.4);">
                         <i class="fas fa-copy"></i>
                     </button>
                 </div>

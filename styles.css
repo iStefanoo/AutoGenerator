@@ -54,11 +54,45 @@ body {
 #qrResult {
     min-height: 200px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #ffffff;
+    background-color: var(--card-bg);
     border-radius: 10px;
     padding: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+#qrResult h3 {
+    margin-top: 0;
+    color: var(--text-color);
+}
+
+#qrResult p {
+    margin: 0.5rem 0;
+    color: var(--text-color);
+}
+
+#qrResult a {
+    color: #0d6efd;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+#qrResult a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+#qrResult .result-item {
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 0;
+    width: 100%;
+    text-align: center;
 }
 
 .navbar {
@@ -104,6 +138,20 @@ body {
     font-size: 2rem;
     color: #0d6efd;
 }
+
+.read-more {
+ color: #0d6efd;
+ text-decoration: none;
+}
+
+.read-more:hover {
+text-decoration: underline;
+}
+
+.card-title {
+    color: var(--input-text);
+}
+
 
 .service-card {
     transition: transform 0.3s ease;
@@ -328,3 +376,20 @@ body {
     scrollbar-width: thin; /* Hacer la barra de desplazamiento más delgada */
     scrollbar-color: #555 #2d2d2d; /* Color del "pulgar" y del fondo */
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
+@keyframes onda {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: none; 
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(0, 81, 255, 0.61);
+    }
+}
+
+

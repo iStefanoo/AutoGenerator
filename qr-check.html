@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Lector de Códigos QR | Generador de Contraseñas y Herramientas Online Gratis</title>
+    <meta name="description" content="Utiliza nuestro lector de códigos QR para extraer información de imágenes de QR de manera rápida y sencilla. ¡Prueba nuestras herramientas gratuitas!">
+    <meta name="keywords" content="lector QR, herramientas online, generador QR, escanear QR, herramientas gratuitas, tecnología QR, seguridad digital, generador de contraseñas, herramientas digitales">
+    <meta name="author" content="GeneratorTools">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://generatortools.vercel.app/qr-check.html">
+    <meta property="og:title" content="Lector de Códigos QR - Generador de Herramientas Digitales">
+    <meta property="og:description" content="Escanea códigos QR y extrae información de manera rápida y sencilla con nuestro lector de QR. Herramienta gratuita y fácil de usar.">
+    <meta property="og:image" content="https://generatortools.vercel.app/assets/og-image-qr.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://generatortools.vercel.app/qr-check.html">
+    <meta property="twitter:title" content="Lector de Códigos QR - Generador de Herramientas Digitales">
+    <meta property="twitter:description" content="Escanea códigos QR y extrae información de manera rápida y sencilla con nuestro lector de QR. Herramienta gratuita y fácil de usar.">
+    <meta property="twitter:image" content="https://generatortools.vercel.app/assets/twitter-image-qr.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://generatortools.vercel.app/qr-check.html">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Lector de Códigos QR",
+        "description": "Herramienta gratuita para escanear y extraer información de códigos QR.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "All",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+        }
+    }
+    </script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+
+   <!-- Favicons -->
+   <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+   <link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon/favicon-96x96.png">
+   <link rel="manifest" href="./assets/favicon/site.webmanifest">
+   <link rel="mask-icon" href="./assets/favicon/safari-pinned-tab.svg" color="#4A90E2">
+   <meta name="msapplication-TileColor" content="#4A90E2">
+   <meta name="theme-color" content="#4A90E2">
+
+   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7952614598730941"
+     crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <i class="fas fa-tools"></i> GeneratorTools
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="QRCodeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Generador QR
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="QRCodeDropdown">
+                                <li><a class="dropdown-item" href="qrcode.html">Generar QR</a></li>
+                                <li><a class="dropdown-item" href="qr-check.html">Lector QR </a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="passwordDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Generador Contraseñas
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="passwordDropdown">
+                                <li><a class="dropdown-item" href="password.html">Generar Contraseña</a></li>
+                                <li><a class="dropdown-item" href="password-check.html">Verificador de Contraseñas </a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="hashtags.html">Generador Hashtags</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="names.html">Generador Nombres</a>
+                        </li>
+                    </ul>
+                    <button class="btn btn-outline-light" id="themeToggle">
+                        <i class="fas fa-sun"></i> Modo Claro
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section py-5 text-center">
+            <div class="container">
+                <h1 class="display-4 mb-4">Lector de Códigos QR</h1>
+                <p class="lead mb-4">Sube una imagen de un código QR para extraer la información de manera rápida y sencilla.</p>
+            </div>
+        </section>
+
+        <section class="qr-upload py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5">Sube tu Código QR</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <input type="file" id="qrInput" accept="image/*" class="form-control mb-3" aria-label="Sube una imagen de código QR">
+                                <button id="readQR"  style=" box-shadow: 0 0 20px rgba(0, 81, 255, 0.61);" class="btn btn-primary">Leer Código QR</button>
+                                <div id="qrResult" class="mt-4"></div>
+                                <div class="alert alert-success mt-2" id="copyAlert" style="display: none;">
+                                    <i class="fas fa-check-circle"></i> ¡Código QR procesado correctamente!
+                                </div>
+                                <div class="alert alert-danger mt-2" id="imageAlert" style="display: none;">
+                                    <i class="fas fa-exclamation-circle"></i> ¡Debes subir una imagen para poder leer el Código QR!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">© 2025 GeneratorTools - Todas las herramientas son gratuitas</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!--     <script src="password.js"> -->
+        
+    </script>
+
+<script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('themeToggle');
+            
+            function setTheme(isDark) {
+                if (isDark) {
+                    document.documentElement.removeAttribute('data-theme');
+                    themeToggle.innerHTML = '<i class="fas fa-sun"></i> Modo Claro';
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    themeToggle.innerHTML = '<i class="fas fa-moon"></i> Modo Oscuro';
+                    localStorage.setItem('theme', 'light');
+                }
+            }
+
+            // Inicializar tema
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            setTheme(savedTheme === 'dark');
+
+            themeToggle.addEventListener('click', function() {
+                const isDark = !document.documentElement.hasAttribute('data-theme');
+                setTheme(!isDark);
+            });
+        });
+</script>
+
+<script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('readQR').addEventListener('click', function() {
+            const fileInput = document.getElementById('qrInput');
+            const file = fileInput.files[0];
+            const imageAlert = document.getElementById('imageAlert'); // Obtener la alerta
+
+            // Limpiar la alerta antes de verificar
+            imageAlert.style.display = 'none';
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const img = new Image();
+                    img.onload = function() {
+                        const canvas = document.createElement('canvas');
+                        const context = canvas.getContext('2d');
+                        canvas.width = img.width;
+                        canvas.height = img.height;
+                        context.drawImage(img, 0, 0);
+                        const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+                        const code = jsQR(imageData.data, canvas.width, canvas.height);
+                        if (code) {
+                            displayResult(code.data, event.target.result); // Pasar la imagen
+                        } else {
+                            document.getElementById('qrResult').innerText = 'No se pudo leer el código QR.';
+                        }
+                    };
+                    img.src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            } else {
+                // Mostrar alerta de error
+                imageAlert.style.display = 'block';
+
+                // Ocultar la alerta después de 5 segundos
+                setTimeout(() => {
+                    imageAlert.style.display = 'none';
+                }, 5000); // 5000 milisegundos = 5 segundos
+            }
+        });
+
+        function displayResult(data, imageSrc) {
+            const resultDiv = document.getElementById('qrResult');
+            const copyAlert = document.getElementById('copyAlert');
+            let platform = 'Desconocida';
+            let link = '';
+            let username = '';
+            let text = '';
+            let wifiName = '';
+            let wifiType = '';
+            let wifiPassword = '';
+
+            // Lógica para identificar la plataforma y el enlace
+            if (data.includes('youtube.com')) {
+                platform = 'YouTube';
+                link = data;
+                username = data.split('/').pop(); // Obtener el @ de YouTube (si aplica)
+            } else if (data.includes('twitter.com') || data.includes('x.com')) {
+                platform = 'Twitter';
+                link = data;
+                username = data.split('/').pop(); // Obtener el @ de Twitter
+            } else if (data.includes('facebook.com')) {
+                platform = 'Facebook';
+                link = data;
+                username = data.split('/').pop(); // Obtener el nombre de usuario de Facebook
+            } else if (data.includes('instagram.com')) {
+                platform = 'Instagram';
+                link = data;
+                username = data.split('/').pop(); // Obtener el @ de Instagram
+            } else if (data.includes('linkedin.com')) {
+                platform = 'LinkedIn';
+                link = data;
+                username = data.split('/').pop(); // Obtener el nombre de usuario de LinkedIn
+            } else if (data.includes('tiktok.com')) {
+                platform = 'TikTok';
+                link = data;
+                username = data.split('/').pop(); // Obtener el nombre de usuario de TikTok
+            } else if (data.startsWith('WIFI:')) { // Verificar si es un código QR de WiFi
+                const wifiData = data.split(';');
+                wifiData.forEach(item => {
+                    if (item.startsWith('S:')) {
+                        wifiName = item.substring(2); // Obtener el nombre del WiFi
+                    } else if (item.startsWith('T:')) {
+                        wifiType = item.substring(2); // Obtener el tipo de seguridad
+                    } else if (item.startsWith('P:')) {
+                        wifiPassword = item.substring(2); // Obtener la contraseña
+                    }
+                });
+            } else {
+                text = data; // Si no es un enlace, se considera texto
+            }
+
+            // Limpiar resultados anteriores
+            resultDiv.innerHTML = `
+                <h3>Resultados:</h3>
+                <img src="${imageSrc}" alt="Código QR" style="max-width: 100px; margin-bottom: 10px;">
+            `;
+
+            // Mostrar perfil estilo embed si se detecta una red social
+            if (platform !== 'Desconocida') {
+                resultDiv.innerHTML += `
+                    <p><strong>Plataforma:</strong> ${platform}</p>
+                    <p><strong>Usuario:</strong> ${username}</p>
+                    <p><strong>Link:</strong> <a href="${link}" target="_blank">${link}</a></p>
+                    ${platform === 'TikTok' ? '' : `<iframe src="${link}/embed" style="width: 100%; height: 300px; border: none;"></iframe>`} <!-- Embed del perfil -->
+                `;
+            } else if (wifiName) {
+                resultDiv.innerHTML += `
+                    <p><strong>Wifi:</strong> ${wifiName}</p>
+                    <p><strong>Tipo:</strong> ${wifiType}</p>
+                    <p><strong>Contraseña:</strong> ${wifiPassword}</p>
+                `;
+            } else if (text) {
+                resultDiv.innerHTML += `
+                    <p><strong>Contenido:</strong> ${text}</p>
+                `;
+            }
+
+            // Mostrar alerta de éxito
+            copyAlert.style.display = 'block';
+            setTimeout(() => {
+                copyAlert.style.display = 'none';
+            }, 3000); // Ocultar después de 3 segundos
+        }
+    });
+</script>
+</body>
+</html> 

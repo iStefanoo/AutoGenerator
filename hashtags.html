@@ -76,16 +76,29 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="qrcode.html">Generador QR</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="QRCodeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Generador QR
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="QRCodeDropdown">
+                            <li><a class="dropdown-item" href="qrcode.html">Generar QR</a></li>
+                            <li><a class="dropdown-item" href="qr-check.html">Lector QR </a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="passwordDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Generador Contraseñas
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="passwordDropdown">
+                            <li><a class="dropdown-item" href="password.html">Generar Contraseña</a></li>
+                            <li><a class="dropdown-item" href="password-check.html">Verificador de Contraseñas </a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="password.html">Generador Contraseñas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="hashtags.html">Generador Hashtags</a>
+                        <a class="nav-link" href="hashtags.html">Generador Hashtags</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="names.html">Generador Nombres</a>
@@ -103,13 +116,106 @@
             <div class="container">
                 <h1 class="display-4 mb-4">Generador de Hashtags</h1>
                 <p class="lead mb-4">Crea hashtags relevantes para tus publicaciones en redes sociales.</p>
-                <div class="badge bg-primary p-2 mb-4">
-                    <i class="fas fa-gift"></i> ¡SERVICIO GRATUITO!
-                </div>
+                <a href="#hashtag-generator">
+                    <div class="badge bg-primary p-2 mb-4" style="animation: onda 1.5s infinite;">
+                        <i class="fas fa-gift"></i> ¡SERVICIO GRATUITO!
+                    </div>
+                </a>
             </div>
         </section>
 
-        <section class="hashtag-generator py-5">
+        <main>
+            <section class="how-it-works py-5 bg-light">
+                <div class="container">
+                    <h2 class="text-center mb-5">¿Qué son los Hashtags?</h2>
+                    <div class="row g-4">
+                        <div class="col-md-3">
+                            <div class="feature-card card h-100">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-hashtag feature-icon mb-3"></i>
+                                    <h3 class="card-title h5 form-text">¿Qué es un Hashtag?</h3>
+                                    <p class="card-text form-text">Un hashtag es una palabra o frase precedida por el símbolo # que se utiliza en redes sociales para categorizar contenido.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="feature-card card h-100">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-share-alt feature-icon mb-3"></i>
+                                    <h3 class="card-title h5 form-text">¿Cómo usar un Hashtag?</h3>
+                                    <p class="card-text form-text">Incluye hashtags relevantes en tus publicaciones para aumentar su visibilidad y alcance.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="feature-card card h-100">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-users feature-icon mb-3"></i>
+                                    <h3 class="card-title h5 form-text">¿Para qué sirven los Hashtags?</h3>
+                                    <p class="card-text form-text">Ayudan a agrupar contenido similar y a conectar con audiencias interesadas en temas específicos.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="feature-card card h-100">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-chart-line feature-icon mb-3"></i>
+                                    <h3 class="card-title h5 form-text">¿Cómo medir su efectividad?</h3>
+                                    <p class="card-text form-text">Utiliza herramientas de análisis para evaluar el rendimiento de tus publicaciones con hashtags.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- Cómo Funciona -->
+            <section class="how-it-works py-5 bg-light">
+                <div class="container">
+                    <h2 class="text-center mb-5">¿Cómo Funciona?</h2>
+                    <div class="row g-4">
+                        <div class="col-md-3">
+                            <div class="feature-card card h-100">
+                                <div class="card-body text-center">
+                                    <div class="step-number mb-3">1</div>
+                                    <h3 class="card-title h5 form-text">Selecciona un Tema</h3>
+                                    <p class="card-text form-text">Elige un tema relevante para tu contenido y público objetivo.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="feature-card card h-100">
+                                <div class="card-body text-center">
+                                    <div class="step-number mb-3">2</div>
+                                    <h3 class="card-title h5 form-text">Crea tu Hashtag</h3>
+                                    <p class="card-text form-text">Diseña un hashtag único y fácil de recordar.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="feature-card card h-100">
+                                <div class="card-body text-center">
+                                    <div class="step-number mb-3">3</div>
+                                    <h3 class="card-title h5 form-text">Inclúyelo en tus Publicaciones</h3>
+                                    <p class="card-text form-text">Agrega el hashtag en la descripción o comentarios de tus publicaciones.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="feature-card card h-100">
+                                <div class="card-body text-center">
+                                    <div class="step-number mb-3">4</div>
+                                    <h3 class="card-title h5 form-text">Analiza los Resultados</h3>
+                                    <p class="card-text form-text">Revisa el impacto de tus hashtags y ajusta tu estrategia según sea necesario.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <section id="hashtag-generator" class="hashtag-generator py-5">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-8">
@@ -142,7 +248,7 @@
                                     </div>
                                 </div>
 
-                                <button class="btn btn-primary w-100" id="generateHashtags">
+                                <button class="btn btn-primary w-100" style=" box-shadow: 0 0 20px rgba(0, 81, 255, 0.61);" id="generateHashtags">
                                     Generar Hashtags
                                 </button>
                             </div>
@@ -155,51 +261,16 @@
                                     Los hashtags aparecerán aquí...
                                 </div>
                                 <div class="d-flex gap-2">
-                                    <button class="btn btn-success flex-grow-1" id="copyHashtags">
+                                    <button class="btn btn-success  flex-grow-1" style=" box-shadow: 0 0 20px #198754" id="copyHashtags">
                                         <i class="fas fa-copy"></i> Copiar Hashtags
                                     </button>
-                                    <button class="btn btn-primary flex-grow-1" id="regenerateHashtags">
+                                    <button class="btn btn-primary flex-grow-1" style=" box-shadow: 0 0 20px rgba(0, 81, 255, 0.61);" id="regenerateHashtags">
                                         <i class="fas fa-sync-alt"></i> Regenerar
                                     </button>
                                 </div>
                                 <div class="alert alert-success mt-2" id="copyAlert" style="display: none;">
                                     <i class="fas fa-check-circle"></i> ¡Hashtags copiados correctamente!
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="tips-section py-5 bg-light">
-            <div class="container">
-                <h2 class="text-center mb-5">Consejos para Usar Hashtags</h2>
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="feature-card card h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-bullseye feature-icon mb-3"></i>
-                                <h3 class="card-title h5">Sé Específico</h3>
-                                <p class="card-text">Usa hashtags relevantes para tu contenido y nicho</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="feature-card card h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-chart-line feature-icon mb-3"></i>
-                                <h3 class="card-title h5">Cantidad Óptima</h3>
-                                <p class="card-text">Instagram permite hasta 30 hashtags por publicación</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="feature-card card h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-random feature-icon mb-3"></i>
-                                <h3 class="card-title h5">Varía tus Hashtags</h3>
-                                <p class="card-text">Evita usar siempre los mismos hashtags</p>
                             </div>
                         </div>
                     </div>

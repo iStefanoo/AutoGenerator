@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <option value="instagram">Instagram</option>
                     <option value="x">X</option>
                     <option value="facebook">Facebook</option>
+                    <option value="tiktok">TikTok</option>
                 </select>
             </div>
             <div class="mb-3">
@@ -176,6 +177,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         case 'facebook':
                             qrData = `https://facebook.com/${user}`;
                             break;
+                        case 'tiktok':
+                            qrData = `https://tiktok.com/@${user}`;
+                            break;
                     }
                 } else {
                     qrData = document.getElementById('socialUrl').value;
@@ -209,7 +213,6 @@ document.addEventListener('DOMContentLoaded', function() {
             // Agregar el logo después de que el QR se haya generado
             setTimeout(() => {
                 const logoUrl = getLogoForType(type, document.getElementById('socialNetwork')?.value);
-                console.log('URL del logo:', logoUrl); // Verificar la URL del logo
 
                 // Cargar el SVG como texto
                 fetch(logoUrl)
@@ -347,7 +350,8 @@ document.addEventListener('DOMContentLoaded', function() {
             social: {
                 instagram: 'https://api.iconify.design/mdi:instagram.svg',
                 x: 'https://api.iconify.design/simple-icons:x.svg',
-                facebook: 'https://api.iconify.design/mdi:facebook.svg'
+                facebook: 'https://api.iconify.design/mdi:facebook.svg',
+                tiktok: 'https://api.iconify.design/akar-icons:tiktok-fill.svg'
             }
         };
     

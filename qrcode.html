@@ -75,13 +75,26 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="qrcode.html">Generador QR</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="QRCodeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Generador QR
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="QRCodeDropdown">
+                            <li><a class="dropdown-item" href="qrcode.html">Generar QR</a></li>
+                            <li><a class="dropdown-item" href="qr-check.html">Lector QR </a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="password.html">Generador Contraseñas</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="passwordDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Generador Contraseñas
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="passwordDropdown">
+                            <li><a class="dropdown-item" href="password.html">Generar Contraseña</a></li>
+                            <li><a class="dropdown-item" href="password-check.html">Verificador de Contraseñas </a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="hashtags.html">Generador Hashtags</a>
@@ -103,61 +116,64 @@
             <div class="container">
                 <h1 class="display-4 mb-4">Generador de Códigos QR</h1>
                 <p class="lead mb-4">Crea códigos QR personalizados para URLs, WiFi, redes sociales y más.</p>
-                <div class="badge bg-primary p-2 mb-4">
-                    <i class="fas fa-gift"></i> ¡SERVICIO GRATUITO!
-                </div>
+                
+                <a href="#qr-generator">
+                    <div class="badge bg-primary p-2 mb-4" style="animation: onda 1.5s infinite;">
+                        <i class="fas fa-gift"></i> ¡SERVICIO GRATUITO!
+                    </div>
+                </a>
             </div>
         </section>
 
-        <!-- Sección del Generador QR -->
-        <section class="qr-generator py-5">
+
+        <!-- Que son los Codigos QR -->
+
+        <section class="how-it-works py-5 bg-light">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-6">
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <div class="mb-3">
-                                    <label for="qrType" class="form-label">Tipo de QR</label>
-                                    <select class="form-select" id="qrType">
-                                        <option value="url">URL</option>
-                                        <option value="wifi">WiFi</option>
-                                        <option value="social">Redes Sociales</option>
-                                        <option value="text">Texto</option>
-                                    </select>
-                                </div>
-                                <div id="qrInputs">
-                                    <!-- Los campos se generarán dinámicamente -->
-                                </div>
-                                <!-- Casilla de verificación para Términos y Condiciones -->
-                                <div class="mb-3">
-                                    <input type="checkbox" id="acceptTerms" required>
-                                    <label for="acceptTerms" class="terms-label">
-                                        He leído y acepto los <a href="legal.html" target="_blank">Términos y Condiciones</a>
-                                    </label>
-                                </div>
-
-                                <!-- Alerta para términos y condiciones -->
-                                <div class="alert alert-danger mt-2" id="termsAlert" style="display: none;">
-                                    <i class="fas fa-exclamation-circle"></i> ¡Debes aceptar los Términos y Condiciones para poder generar el Código QR!
-                                </div>
-
-                                <button class="btn btn-primary w-100" id="generateQR">Generar QR</button>
+                <h2 class="text-center mb-5">¿Qué son los Códigos QR | QR Codes?</h2>
+                <div class="row g-4">
+                    <div class="col-md-3">
+                        <div class="feature-card card h-100">
+                            <div class="card-body text-center">
+                                <div class="step-number mb-3">1</div>
+                                <h3 class="card-title h5 form-text">¿Qué son los Códigos QR?</h3>
+                                <p class="card-text form-text">Los Códigos QR son códigos de barras bidimensionales que almacenan información accesible mediante un escáner.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="card">
+                    <div class="col-md-3">
+                        <div class="feature-card card h-100">
                             <div class="card-body text-center">
-                                <div id="qrResult"></div>
-                                <button class="btn btn-success mt-3" id="downloadQR" style="display: none;">
-                                    <i class="fas fa-download"></i> Descargar QR
-                                </button>
+                                <div class="step-number mb-3">2</div>
+                                <h3 class="card-title h5 form-text">¿Cómo generamos un QR?</h3>
+                                <p class="card-text form-text">Generamos un QR seleccionando el tipo de información y completando los datos necesarios.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="feature-card card h-100">
+                            <div class="card-body text-center">
+                                <div class="step-number mb-3">3</div>
+                                <h3 class="card-title h5 form-text">¿Para qué sirve un QR ?</h3>
+                                <p class="card-text form-text">Los Códigos QR sirven para acceder rápidamente a información digital, como enlaces, textos o datos de contacto.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="feature-card card h-100">
+                            <div class="card-body text-center">
+                                <div class="step-number mb-3">4</div>
+                                <h3 class="card-title h5 form-text">¿Cómo leer un Código QR?</h3>
+                                <p class="card-text form-text">Hay aplicaciones gratuitas disponibles en iPhone, Samsung, BlackBerry y más marcas.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Como Funciona -->
 
         <section class="how-it-works py-5 bg-light">
             <div class="container">
@@ -186,7 +202,7 @@
                             <div class="card-body text-center">
                                 <div class="step-number mb-3">3</div>
                                 <h3 class="card-title h5 form-text">Genera el QR</h3>
-                                <p class="card-text form-text">Haz clic en generar y visualiza tu código</p>
+                                <p>Haz clic en generar y visualiza tu código</p>
                             </div>
                         </div>
                     </div>
@@ -202,43 +218,56 @@
                 </div>
             </div>
         </section>
+    </main>
 
-        <!-- Sección de Usos -->
-        <section class="uses py-5">
+        <!-- Sección del Generador QR -->
+        <section id="qr-generator" class="qr-generator py-5">
             <div class="container">
-                <h2 class="text-center mb-5">Usos Comunes</h2>
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="feature-card card h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-wifi feature-icon mb-3"></i>
-                                <h3 class="card-title h5">Compartir WiFi</h3>
-                                <p class="card-text">Permite a tus invitados conectarse fácilmente a tu red WiFi</p>
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label for="qrType" class="form-label">Tipo de QR</label>
+                                    <select class="form-select" id="qrType">
+                                        <option value="url">URL</option>
+                                        <option value="wifi">WiFi</option>
+                                        <option value="social">Redes Sociales</option>
+                                        <option value="text">Texto</option>
+                                    </select>
+                                </div>
+                                <div id="qrInputs">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="checkbox" id="acceptTerms" required>
+                                    <label for="acceptTerms" class="terms-label">
+                                        He leído y acepto los <a href="legal.html" target="_blank">Términos y Condiciones</a>
+                                    </label>
+                                </div>
+
+                                <div class="alert alert-danger mt-2" id="termsAlert" style="display: none;">
+                                    <i class="fas fa-exclamation-circle"></i> ¡Debes aceptar los Términos y Condiciones para poder generar el Código QR!
+                                </div>
+
+                                <button class="btn btn-primary w-100" style=" box-shadow: 0 0 20px rgba(0, 81, 255, 0.61);" id="generateQR">Generar QR</button>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="feature-card card h-100">
+                    <div class="col-md-6">
+                        <div class="card">
                             <div class="card-body text-center">
-                                <i class="fas fa-link feature-icon mb-3"></i>
-                                <h3 class="card-title h5">Enlaces Web</h3>
-                                <p class="card-text">Comparte URLs de forma rápida y sencilla</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="feature-card card h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-hashtag feature-icon mb-3"></i>
-                                <h3 class="card-title h5">Redes Sociales</h3>
-                                <p class="card-text">Conecta con tus perfiles sociales instantáneamente</p>
+                                <div id="qrResult"></div>
+                                <button class="btn btn-success mt-3" id="downloadQR" style="display: none;  box-shadow: 0 0 20px #198754;">
+                                    <i class="fas fa-download"></i> Descargar QR
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-    </main>
+
+
 
     <footer class="footer bg-dark text-light py-4 mt-5">
         <div class="container text-center">
